@@ -6,6 +6,7 @@ on:
     branches: [ "main" ]
     paths:
       -"**.typ"
+  workflow_dispatch: 
 
 # 并发控制：如果前一个还没跑完又推了新的，就取消前一个
 concurrency:
