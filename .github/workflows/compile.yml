@@ -2,10 +2,6 @@ name: Compile Typst
 
 # 触发条件：当推送到 main 分支、发起 PR，或手动触发时执行
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      -"**.typ"
   workflow_dispatch: 
 
 # 并发控制：如果前一个还没跑完又推了新的，就取消前一个
