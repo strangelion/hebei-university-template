@@ -12,7 +12,7 @@ set text(lang: "zh", region: "cn")
 }
 
 #let conf(
-  heading: "",
+  head: "",
   title: "",
   author: "",
   student-id: "",
@@ -37,7 +37,7 @@ set text(lang: "zh", region: "cn")
     #image("logo.png", width: 80%)
     #v(1cm)
 
-    #text(size: 26pt, weight: "bold")[#heading] \
+    #text(size: 26pt, weight: "bold")[#head] \
     #v(2cm)
     #text(size: 22pt, weight: "bold")[#title]
 
