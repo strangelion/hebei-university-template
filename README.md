@@ -4,11 +4,11 @@
 
 特点
 
-· 简洁写作：全程使用标记式语法，告别复杂的 LaTeX 命令。
-· 符合学术规范：内置了中文论文标准格式（封面、各级标题、图表编号等）。
-· 快速渲染：基于 Typst 引擎，实时编译，所见即所得。
-· 完整的章节结构：预设了从“摘要”到“致谢”的完整文档框架。
-· 参考文献支持：集成 GB/T 7714 中文国标引用样式。
+- 简洁写作：全程使用标记式语法，告别复杂的 LaTeX 命令。
+- 符合学术规范：内置了中文论文标准格式（封面、各级标题、图表编号等）。
+- 快速渲染：基于 Typst 引擎，实时编译，所见即所得。
+- 完整的章节结构：预设了从“摘要”到“致谢”的完整文档框架。
+- 参考文献支持：集成 GB/T 7714 中文国标引用样式。
 
 使用方法
 
@@ -16,18 +16,18 @@
 
 本项目需要安装 Typst。它提供本地编译与在线编辑两种使用方式：
 
-· 本地安装：
-  · Windows：从 GitHub Releases 下载 typst-x86_64-pc-windows-msvc.zip，解压后将路径添加到系统 PATH。
-  · macOS/Linux：可以使用包管理器（如 Homebrew、APT、Pacman）进行安装，也可以使用 Rust 的 Cargo 工具通过 cargo install typst-cli 命令安装。
-  · 验证安装：在终端中输入 typst -V，若显示版本号则说明安装成功。
-  · VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
+- 本地安装：
+  - Windows：从 GitHub Releases 下载 typst-x86_64-pc-windows-msvc.zip，解压后将路径添加到系统 PATH。
+  - macOS/Linux：可以使用包管理器（如 Homebrew、APT、Pacman）进行安装，也可以使用 Rust 的 Cargo 工具通过 cargo install typst-cli 命令安装。
+  - 验证安装：在终端中输入 typst -V，若显示版本号则说明安装成功。
+  - VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
 
 2. 获取模板
 
 你可以选择以下任一方式：
 
-· 下载 ZIP：直接下载本项目代码并解压。
-· 克隆仓库：
+- 下载 ZIP：直接下载本项目代码并解压。
+- 克隆仓库：
   ```bash
   git clone https://github.com/strangelion/university-typst-template.git
   ```
