@@ -41,7 +41,7 @@
 cd university-typst-template
 typst compile main.typ paper.pdf
 ```
-如果出现字体问题手动安装字体或用这个
+如果出现字体问题手动安装字体或用这个：
 
 ```bash
 cd university-typst-template
@@ -98,7 +98,8 @@ university-typst-template/
 
 ## 特殊方式
 - Github Action:
-  - 可以clone该项目，修改好内容后手动触发action获得包含PDF的压缩包（何意为？）
+  - 可以clone该项目，修改好内容后手动触发action获得包含PDF的压缩包。（何意为？）
+  - 不要pull本项目时使用action，会对本项目action产生影响。
 
 ## 许可证
 
