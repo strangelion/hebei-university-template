@@ -7,6 +7,7 @@
 
 #v(2em)
 
+//英语摘要不需要可以从此行开始删除
 #heading(level: 1, numbering: none, outlined: true)[ABSTRACT]
 
 The abstract is a brief summary of the content of the article. It needs to be short, concise, clear and specific. The general word count is about 300 words.
