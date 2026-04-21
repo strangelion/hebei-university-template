@@ -24,6 +24,7 @@
   - VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
 - 网页使用：
   - 官方网站 https://typst.app/play/
+  - 创建GitHub代码空间https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=strangelion/university-typst-template
 
 2. 获取模板
 
