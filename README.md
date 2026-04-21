@@ -52,7 +52,7 @@ typst compile main.typ paper.pdf
 
 ```bash
 cd university-typst-template
-typst compile --font-path ./fonts main.typ paper.pdf
+typst compile --font-path ./content/fonts main.typ paper.pdf
 ```
 
 若你安装了 VSCode 插件，打开 main.typ 文件后，插件会自动启动预览服务。之后你可以在浏览器中实时查看论文排版效果。使用插件注意固定主文件以避免产生不需要的PDF文件（Ctrl + Shift + P打开命令面板）：
