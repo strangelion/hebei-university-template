@@ -12,14 +12,29 @@ set text(lang: "zh", region: "cn")
 }
 
 #let template(
-  head: "",
-  title: "",
-  author: "",
-  student-id: "",
-  major: "",
-  advisor: "",
-  date: "",
   doc,
+  head: "",
+  head_visible: none,
+  title: "",
+  title_visible: none,
+  title_en: "",
+  title_en_visible: none,
+  // 学校信息
+  school: "",
+  school_visible: none,
+  college: "",
+  college_visible: none,
+  // 作者信息
+  author: "",
+  author_visible: none,
+  student_id: "",
+  student_id_visible: none,
+  major: "",
+  major_visible: none,
+  // 指导教师
+  supervisor: "",
+  supervisor_visible: none,
+  date: "",
 ) = {
   // 1. 页面设置
   set page(
@@ -36,18 +51,37 @@ set text(lang: "zh", region: "cn")
     #v(2cm)
     #image("resource/logo.png", width: 80%)
     #v(1cm)
-
-    #text(size: 26pt, weight: "bold")[#head] \
-    #v(2cm)
-    #text(size: 22pt, weight: "bold")[#title]
-
+    #if head_visible {
+      text(size: 26pt, weight: "bold")[#head]
+      v(2cm)
+    }
+    #if title_visible {
+      text(size: 22pt, weight: "bold")[#title]
+      v(1cm)
+    }
+    #if title_en_visible {
+      text(size: 18pt)[#title_en]
+      v(2cm)
+    }
     #v(1fr)
 
     // 1. 先测量所有信息的宽度，找出最大宽度
     #context {
-      let fields = (author, student-id, major, advisor)
-      let widths = fields.map(f => measure(text(size: 14pt)[#f]).width)
-      let max-width = calc.max(..widths) + 20pt // 动态计算最长宽度并加余量
+      let field-map = (
+        school: (school, school_visible),
+        college: (college, college_visible),
+        author: (author, author_visible),
+        "student-id": (student_id, student_id_visible),
+        major: (major, major_visible),
+        supervisor: (supervisor, supervisor_visible),
+      )
+      let visible-values = field-map.values().filter(((_, visible)) => visible).map(((field, _)) => field)
+      let max-width = if visible-values.len() > 0 {
+        let widths = visible-values.map(f => measure(block(width: auto, text(size: 14pt)[#f])).width)
+        calc.max(..widths) + 20pt
+      } else {
+        0pt
+      }
 
       // 2. 重新定义 info-row
       let info-row(label, value) = {
@@ -63,13 +97,32 @@ set text(lang: "zh", region: "cn")
         )
       }
       v(1fr)
-      info-row("学生姓名：", author)
-      v(1.5em)
-      info-row("学　　号：", student-id)
-      v(1.5em)
-      info-row("专　　业：", major)
-      v(1.5em)
-      info-row("指导教师：", advisor)
+
+      if school_visible {
+        info-row("学　　校：", school)
+        v(1.5em)
+      }
+      if college_visible {
+        info-row("学　　院：", college)
+        v(1.5em)
+      }
+      if author_visible {
+        info-row("学生姓名：", author)
+        v(1.5em)
+      }
+      if student_id_visible {
+        info-row("学　　号：", student_id)
+        v(1.5em)
+      }
+      if major_visible {
+        info-row("专　　业：", major)
+        v(1.5em)
+      }
+      if supervisor_visible {
+        info-row("指导教师：", supervisor)
+        v(1.5em)
+      }
+
       v(1fr)
     }
 
