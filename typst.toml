@@ -15,4 +15,4 @@ font-paths = ["fonts"]
 [template]
 path = "."
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "resource/thumbnail.png"
