@@ -13,6 +13,6 @@ exclude = [".devcontainer", "assets"]
 font-paths = ["fonts"]
 
 [template]
-path = "."                    # 模板所在目录
-entrypoint = "main.typ"       # 模板的使用入口文件
-thumbnail = "thumbnail.png"   # 建议加一个预览图
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
