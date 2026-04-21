@@ -27,7 +27,7 @@ jobs:
 
       # 3. 输出字体列表（以防万一）
       - name: Check Available Fonts
-        run: typst fonts --font-path ./fonts
+        run: typst fonts --font-path ./resource/fonts
 
       # 4. 编译 Typst 文件
       - name: Compile document
