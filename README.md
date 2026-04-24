@@ -24,7 +24,6 @@
   - VSCode 插件（推荐）：在 VSCode 扩展商店中搜索并安装 “Tinymit Typst”。它会在你保存代码时自动刷新 PDF 预览，带来类似 Typora 的写作体验。
 - 网页使用：
   - 官方网站 https://typst.app/play/
-  - VScode网页版 https://vscode.dev/github/strangelion/hebei-university-template
   - 创建GitHub代码空间https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=strangelion/university-typst-template
 
 2. 获取模板
@@ -36,7 +35,7 @@
   ```bash
   git clone https://github.com/strangelion/university-typst-template.git
   ```
--调用模板：
+-调用模板：（暂时还未合并）
   ```typst
   #import "@preview/strangelion:0.1.0": *
   ```
@@ -104,9 +103,6 @@ university-typst-template/
   supervisor: "罗教授",
   // 日期（自动生成当前年份）
   date: datetime.today().display("[year]年[month]月[day]日"),
-  // 其他可选字段
-  keywords: ("Typst", "论文模板", "排版"),
-  keywords-en: ("Typst", "Thesis Template", "Typesetting"),
 )
 ```
 
