@@ -18,7 +18,7 @@
   major: conf.major,
   supervisor: conf.supervisor,
   date: conf.date,
-  info_order: conf.info-order, // 传递顺序数组
+  info_order: conf.info-order,
 )
 
 // 前言部分（罗马数字页码）

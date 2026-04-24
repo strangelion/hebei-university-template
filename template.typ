@@ -64,7 +64,7 @@
       let all-fields = (
         "4": ("学期信息：", school_semester),
         "5": ("学　　校：", school),
-        "6": ("课程ID：", course_id),
+        "6": ("　课程号：", course_id),
         "7": ("课程名称：", course_name),
         "8": ("学　　院：", college),
         "9": ("学生姓名：", author),
@@ -103,7 +103,21 @@
           let (label, data) = all-fields.at(key)
           if data.visible {
             info-row(label, data.value)
-            v(1.5em)
+            v(1.2em)
+          } else {
+            if data.value != none {
+              // 如果字段不可见但有值，仍占位但不显示内容
+              grid(
+                columns: (80pt, max-width),
+                column-gutter: 0pt,
+                align: (right + horizon, center + horizon),
+                text(weight: "bold", size: 14pt)[#label],
+                block(width: 100%, stroke: (bottom: 1pt), inset: (bottom: 4pt))[
+                  #set text(size: 14pt)
+                  #v(1.2em) // 占位符，保持行高一致
+                ],
+              )
+            }
           }
         }
       }
