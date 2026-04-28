@@ -7,6 +7,4 @@
     "[typst]": {
         "editor.formatOnSave": true
     },
-    // 设置 PDF 预览的默认查看方式
-    "pdfjs.viewer": "vscode"
 }

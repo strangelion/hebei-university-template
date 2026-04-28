@@ -16,19 +16,20 @@
   doc,
   head: (name: none, value: none, visible: none, depth: none),
   title: (name: none, value: none, visible: none, depth: none),
-  title_en: (name: none, value: none, visible: none, depth: none),
-  school_semester: (name: none, value: none, visible: none, depth: none),
+  title-en: (name: none, value: none, visible: none, depth: none),
+  school-semester: (name: none, value: none, visible: none, depth: none),
   school: (name: none, value: none, visible: none, depth: none),
-  course_id: (name: none, value: none, visible: none, depth: none),
-  course_name: (name: none, value: none, visible: none, depth: none),
+  course-id: (name: none, value: none, visible: none, depth: none),
+  course-name: (name: none, value: none, visible: none, depth: none),
   college: (name: none, value: none, visible: none, depth: none),
   author: (name: none, value: none, visible: none, depth: none),
-  student_id: (name: none, value: none, visible: none, depth: none),
+  student-id: (name: none, value: none, visible: none, depth: none),
   class: (name: none, value: none, visible: none, depth: none),
   major: (name: none, value: none, visible: none, depth: none),
   supervisor: (name: none, value: none, visible: none, depth: none),
   date: (name: none, value: datetime.today().display("[year]年[month]月[day]日"), visible: true, depth: none),
-  info_order: none,
+  info-order: none,
+  add-on: none,
 ) = {
   // 1. 页面设置
   set page(
@@ -41,6 +42,62 @@
   set par(leading: 1em, first-line-indent: 2em, justify: true)
 
   // 3. 封面生成
+  if add-on {
+    // 1. 在封面左侧添加装订线 (相对于页面边缘定位)
+    // 因为是在封面逻辑内，place 会作用于当前页
+    place(left + top, dx: -1.5cm, dy: 5%)[
+      // dx: -1.5cm 是相对于左内边距的偏移。
+      // 如果您的左边距是 2.5cm，-1.5cm 正好让线处于距离纸张左边缘 1cm 的位置。
+      #block(width: 30pt, height: 90%)[
+        #set align(center)
+        #set text(size: 11pt, fill: gray) // 使用 fill 修复报错
+
+        // 上方虚线：1fr 自动伸缩
+        #line(angle: 90deg, length: 40%, stroke: (paint: gray, dash: "dashed"))
+
+        #v(2em)
+        #stack(spacing: 2em, [装], [订], [线])
+        #v(2em)
+
+        // 下方虚线：1fr 自动伸缩
+        #line(angle: 90deg, length: 40%, stroke: (paint: gray, dash: "dashed"))
+      ]
+    ]
+
+    // 2. 在封面右上角添加 3x6 小表格
+    place(top + right, dx: 1cm, dy: -2.4cm)[
+      #align(right)[
+        #set text(size: 9pt)
+        #table(
+          align: (left, left, left), // 右对齐且无额外间距
+          columns: (60pt, 60pt, 60pt), // 缩窄列宽
+          rows: 2.5pt * 6, // 缩短行高
+          stroke: 0.4pt, // 细边框
+          ..(
+            [评价指标],
+            [分值],
+            [得分],
+            [题名、摘要],
+            [25],
+            [],
+            [正文],
+            [45],
+            [],
+            [图表与公式],
+            [20],
+            [],
+            [参考文献],
+            [10],
+            [],
+            [总分],
+            [100],
+            [],
+          )
+        )
+      ]
+    ]
+  }
+
   align(center)[
     #v(1.2cm)
     #image("resource/logo.png", width: 80%)
@@ -53,8 +110,8 @@
       text(size: 22pt, weight: "bold")[#title.value]
       v(0.6cm)
     }
-    #if title_en.visible {
-      text(size: 18pt)[#title_en.value]
+    #if title-en.visible {
+      text(size: 18pt)[#title-en.value]
       v(0.6cm)
     }
     #v(1fr)
@@ -62,13 +119,13 @@
     #context {
       // 1. 定义所有可能的字段映射，Key 为 depth 值 [cite: 1, 2]
       let all-fields = (
-        "4": (justify-text(school_semester.name) + "：", school_semester),
+        "4": (justify-text(school-semester.name) + "：", school-semester),
         "5": (justify-text(school.name) + "：", school),
-        "6": (justify-text(course_id.name) + "：", course_id),
-        "7": (justify-text(course_name.name) + "：", course_name),
+        "6": (justify-text(course-id.name) + "：", course-id),
+        "7": (justify-text(course-name.name) + "：", course-name),
         "8": (justify-text(college.name) + "：", college),
         "9": (justify-text(author.name) + "：", author),
-        "10": (justify-text(student_id.name) + "：", student_id),
+        "10": (justify-text(student-id.name) + "：", student-id),
         "11": (justify-text(class.name) + "：", class),
         "12": (justify-text(major.name) + "：", major),
         "13": (justify-text(supervisor.name) + "：", supervisor),
@@ -96,8 +153,8 @@
         )
       }
 
-      // 4. 根据 info_order 的顺序循环渲染
-      for d in info_order {
+      // 4. 根据 info-order 的顺序循环渲染
+      for d in info-order {
         let key = str(d)
         if key in all-fields {
           let (label, data) = all-fields.at(key)
