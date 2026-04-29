@@ -40,6 +40,10 @@
   // 2. 基础字体和段落设置
   set text(font: ("Times New Roman", "simsun"), size: 12pt)
   set par(leading: 1em, first-line-indent: 2em, justify: true)
+  show heading: it => {
+    it
+    par(text(size: 0pt, ""))
+  }
 
   // 3. 封面生成
   if 1 in add-on {
@@ -209,7 +213,7 @@
           #it.body
         ]
       ]
-      v(20pt)
+      v(10pt)
     } else if it.level == 2 {
       // 二级标题：四号字(14pt)
       text(size: 14pt)[#it]
@@ -274,6 +278,11 @@
   show outline.entry.where(level: 1): it => {
     v(12pt, weak: true)
     strong(it)
+  }
+
+  show heading: it => {
+    it
+    v(-0.5em)
   }
 
   doc
