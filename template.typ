@@ -42,7 +42,7 @@
   set par(leading: 1em, first-line-indent: 2em, justify: true)
 
   // 3. 封面生成
-  if add-on {
+  if 1 in add-on {
     // 1. 在封面左侧添加装订线 (相对于页面边缘定位)
     // 因为是在封面逻辑内，place 会作用于当前页
     place(left + top, dx: -1.5cm, dy: 5%)[
@@ -63,7 +63,9 @@
         #line(angle: 90deg, length: 40%, stroke: (paint: gray, dash: "dashed"))
       ]
     ]
+  }
 
+  if 2 in add-on {
     // 2. 在封面右上角添加 3x6 小表格
     place(top + right, dx: 1cm, dy: -2.4cm)[
       #align(right)[
