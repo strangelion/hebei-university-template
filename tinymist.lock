@@ -3,6 +3,13 @@
 version = "0.1.0-beta0"
 
 [[document]]
+id = "file:config.typ"
+inputs = []
+main = "file:config.typ"
+root = "file:."
+system-fonts = true
+
+[[document]]
 id = "file:main.typ"
 inputs = []
 main = "file:main.typ"
@@ -11,4 +18,8 @@ system-fonts = true
 
 [[route]]
 id = "file:main.typ"
+priority = 256
+
+[[route]]
+id = "file:config.typ"
 priority = 256

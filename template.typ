@@ -30,6 +30,8 @@
   date: (name: none, value: datetime.today().display("[year]年[month]月[day]日"), visible: none, depth: none),
   info-order: none,
   add-on: none,
+  evaluation-data: none,
+  evaluation-style: none,
 ) = {
   // 1. 页面设置
   set page(
@@ -65,7 +67,6 @@
     ]
   }
 
-  import "config.typ": evaluation-data, evaluation-style
   if 2 in add-on {
     place(top + right, dx: 1cm, dy: -2.4cm)[
       #align(right)[

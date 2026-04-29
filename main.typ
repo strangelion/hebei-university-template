@@ -19,6 +19,8 @@
   date: conf.date,
   info-order: conf.info-order,
   add-on: conf.add-on,
+  evaluation-data: conf.evaluation.at(0),
+  evaluation-style: conf.evaluation.at(1),
 )
 
 // 前言部分（罗马数字页码）
